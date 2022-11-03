@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+            integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+            crossorigin="anonymous"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <!-- //<link rel="stylesheet" href="./styles.css" /> -->
+        <title>Websockets</title>
+    </head>
+    <body>
+        <div class="container">
+            <!--CHAT-->
+            <div class="jumbotron">
+                <div class="input-group mb-3" id="chatInputGroup">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Ingrese un token"
+                        aria-describedby="button-addon2"
+                        id="tokenInput"
+                    />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="tokenBtn">Enviar</button>
+                    </div>
+                </div>
+
+                <h2 class="mb-3">Chat</h2>
+                <h4 id="compression"></h4>
+                <span id="notifications"></span>
+                <div class="input-group mb-3" id="chatInputGroup">
+                    <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Ingrese un mensaje"
+                        aria-describedby="button-addon2"
+                        id="chatInput"
+                    />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="chatBtn">Enviar</button>
+                    </div>
+                </div>
+                <div id="error"></div>
+                <h6>Answer to</h6>
+                <select name="users" id="usersSelect"></select>
+                <div id="messages"></div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.3/qs.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
