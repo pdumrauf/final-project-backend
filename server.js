@@ -1,11 +1,10 @@
 const path = require("path");
 const dotenv = require("dotenv");
-
+const env = process.env.NODE_ENV;
+const envPath = path.resolve(process.cwd(), env + ".env");
 const jwt = require("jsonwebtoken");
 
-dotenv.config(
-    path.resolve(process.cwd(), process.env.NODE_ENV + ".env")
-);
+dotenv.config({ path: envPath });
 
 const express = require("express");
 const { engine } = require("express-handlebars");
@@ -33,9 +32,8 @@ const MessageRepository = require("./repositories/MessageRepository");
 const messageRepository = new MessageRepository();
 const messageService = new MessageService(messageRepository);
 
-//TODO
-//-validaciones
-//chat :)
+//TODO validatiosns
+//chat
 
 const app = express();
 const httpServer = new HttpServer(app);

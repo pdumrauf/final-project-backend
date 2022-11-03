@@ -1,6 +1,6 @@
 const UserService = require("../services/UserService");
 const UserRepository = require("../repositories/UserRepository");
-const { Strategy: JwtStrategy, ExtractJwt } = require("passport-jwt");
+const { Strategy: JwtStrategy, ExtractJwt} = require('passport-jwt');
 
 const initializePassport = (passport) => {
     const userRepository = new UserRepository();
@@ -9,6 +9,7 @@ const initializePassport = (passport) => {
     let opts = {};
     opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
     opts.secretOrKey = process.env.JWT_SECRET;
+    console.log(opts)
 
     passport.use(
         new JwtStrategy(opts, async (jwt_payload, done) => {
